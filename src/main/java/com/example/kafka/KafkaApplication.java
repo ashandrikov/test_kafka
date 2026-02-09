@@ -4,22 +4,18 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.core.KafkaTemplate;
 
 @SpringBootApplication
 public class KafkaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaApplication.class, args);
-		System.out.println("Hello world!");
 	}
 
 	@Bean
-	public ApplicationRunner runner(KafkaProducerService kafkaProducerService) {
+	public ApplicationRunner runner(KafkaProducer producer) {
 		return args -> {
-			System.out.println("Запуск отправки сообщения...");
-			kafkaProducerService.sendMessage("test", "Привет от Spring Boot веб-приложения!");
-			System.out.println("Запрос на отправку отправлен!");
+			// todo
 		};
 	}
 
